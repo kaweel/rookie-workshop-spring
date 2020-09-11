@@ -35,6 +35,10 @@ public class StudentSpecification {
         return (Specification<Student>) (Root<Student> root, CriteriaQuery<?> query, CriteriaBuilder builder) -> builder.equal(root.get("name"), name);
     }
 
+    public static Specification<Student> passwordIs(String password) {
+        return (Specification<Student>) (Root<Student> root, CriteriaQuery<?> query, CriteriaBuilder builder) -> builder.equal(root.get("password"), password);
+    }
+
     public static Specification<Student> gradeIs(Grade grade) {
         return (Specification<Student>) (Root<Student> root, CriteriaQuery<?> query, CriteriaBuilder builder) -> builder.equal(root.get("grade"), grade);
     }

@@ -35,7 +35,15 @@ dependencies {
 
 test {
     useJUnitPlatform {
-        excludeTags 'integration'
+        excludeTags 'integration', 'basic'
+    }
+}
+
+task basic(type: Test) {
+    group = 'Custom task'
+    description = 'Run all basic test'
+    useJUnitPlatform {
+        includeTags 'basic'
     }
 }
 
