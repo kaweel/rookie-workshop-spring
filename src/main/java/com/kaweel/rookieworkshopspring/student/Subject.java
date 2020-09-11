@@ -9,9 +9,9 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "student")
+@Table(name = "subject")
 @EqualsAndHashCode(callSuper = false)
-public class Student extends ActionEntity {
+public class Subject extends ActionEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,13 +21,7 @@ public class Student extends ActionEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "grade", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Grade grade;
-
-    @Column(name = "password", nullable = false)
-    private String password;
-
-    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "subject", fetch = FetchType.LAZY)
     private Set<StudentSubject> studentSubjects;
+
 }
