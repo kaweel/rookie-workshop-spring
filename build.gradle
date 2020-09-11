@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.3.3.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
+    id 'jacoco'
 }
 
 group = 'com.kaweel'
@@ -52,5 +53,18 @@ task integration(type: Test) {
     description = 'Run all integration test'
     useJUnitPlatform {
         includeTags 'integration'
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.5"
+}
+
+jacocoTestReport {
+    dependsOn 'test'
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
     }
 }
