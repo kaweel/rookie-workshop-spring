@@ -91,13 +91,27 @@ public class StudentRepositoryTest {
 //    }
 
     @Test
-    @DisplayName("delete by student name is 'sephera' total student should minus 1")
+    @DisplayName("delete by student name is 'sephera' total student should minus '1'")
     @Transactional
     public void deleteByName() {
         int before = studentRepository.findAll().size();
         studentRepository.deleteByName("sephera");
         int after = studentRepository.findAll().size();
         Assertions.assertEquals(before - 1, after);
+    }
+
+    @Test
+    @DisplayName("add student name celica total student should plus '1'")
+    @Transactional
+    public void add_student() {
+        int before = studentRepository.findAll().size();
+        Student student = new Student();
+        student.setName("celica");
+        student.setGrade(Grade.HIGH_SCHOOL);
+        student.setPassword("1");
+        studentRepository.save(student);
+        int after = studentRepository.findAll().size();
+        Assertions.assertEquals(before + 1, after);
     }
 
 }
