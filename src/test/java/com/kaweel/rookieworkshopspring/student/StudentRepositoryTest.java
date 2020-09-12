@@ -21,7 +21,6 @@ import java.util.Optional;
 @Sql(value = {"/sql_script/subject_data.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @Sql(value = {"/sql_script/student_subject_data.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @Sql(value = {"/sql_script/student_cleanup.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-@Tag("unit")
 public class StudentRepositoryTest {
 
     @Autowired

@@ -13,7 +13,6 @@ public class RookieWorkshopSpringApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-		System.out.println("Hello Rookie Spring Boot!!");
-        System.exit(0);
+        System.out.println("Hello Rookie Spring Boot!!");
     }
 }
