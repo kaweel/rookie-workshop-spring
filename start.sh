@@ -1,4 +1,4 @@
 #!/bin/bash
 
 docker-compose build --no-cache
-docker-compose start
+docker-compose up -d

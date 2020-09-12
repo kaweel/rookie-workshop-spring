@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker-compose start -d
+docker-compose up -d
