@@ -59,13 +59,7 @@ public class StudentServiceTest {
     @Test
     public void save() {
         StudentService.Student student = new StudentService.Student()
-                .setStudentID(103)
-                .setSubjects(
-                        Arrays.asList(
-                                new StudentService.Subject()
-                                        .setName("Mathematics")
-                        )
-                );
+                .setStudentID(103);
         BDDMockito.given(studentRepository.findByStudentID(BDDMockito.anyInt())).willReturn(Optional.empty());
         studentService.save(student);
         BDDMockito.verify(studentRepository, BDDMockito.times(1)).findByStudentID(BDDMockito.anyInt());
