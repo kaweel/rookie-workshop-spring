@@ -5,4 +5,4 @@ ENV TZ=Asia/Bangkok
 RUN date
 WORKDIR /app/
 COPY ./build/libs/rookie-workshop-spring-0.0.1-SNAPSHOT.jar .
-CMD ["java", "-Xmx256M","-jar", "rookie-workshop-spring-0.0.1-SNAPSHOT.jar","-Duser.timezone=Asia/Bangkok"]
+CMD ["java", "-Xmx256M","-jar", "rookie-workshop-spring-0.0.1-SNAPSHOT.jar"]
