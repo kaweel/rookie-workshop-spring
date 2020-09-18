@@ -2,7 +2,7 @@ package com.kaweel.rookieworkshopspring.auth;
 
 import com.kaweel.rookieworkshopspring.auth.model.SignInRequest;
 import com.kaweel.rookieworkshopspring.auth.model.SignInResponse;
-import com.kaweel.rookieworkshopspring.config.handle.BusinessException;
+import com.kaweel.rookieworkshopspring.config.handle.CustomException;
 import com.kaweel.rookieworkshopspring.student.StudentRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Tag;
@@ -36,7 +36,7 @@ public class AuthServiceTest {
     void stub() {
         AuthService service = new AuthService(new StubStudentRepository());
         Assertions.assertThrows(
-                BusinessException.class,
+                CustomException.class,
                 () -> service.signIn(new SignInRequest()), HttpStatus.UNAUTHORIZED.getReasonPhrase()
         );
     }
@@ -46,7 +46,7 @@ public class AuthServiceTest {
         SpyStudentRepository spy = new SpyStudentRepository();
         AuthService service = new AuthService(spy);
         Assertions.assertThrows(
-                BusinessException.class,
+                CustomException.class,
                 () -> service.signIn(new SignInRequest()), HttpStatus.UNAUTHORIZED.getReasonPhrase()
         );
         Assertions.assertEquals(true, spy.isFindByUserNameWasCalled());
@@ -65,7 +65,7 @@ public class AuthServiceTest {
     void fake_fail() {
         AuthService service = new AuthService(studentRepository);
         Assertions.assertThrows(
-                BusinessException.class,
+                CustomException.class,
                 () -> service.signIn(new SignInRequest()), HttpStatus.UNAUTHORIZED.getReasonPhrase()
         );
     }

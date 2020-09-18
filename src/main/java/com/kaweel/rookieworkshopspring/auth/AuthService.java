@@ -2,7 +2,7 @@ package com.kaweel.rookieworkshopspring.auth;
 
 import com.kaweel.rookieworkshopspring.auth.model.SignInRequest;
 import com.kaweel.rookieworkshopspring.auth.model.SignInResponse;
-import com.kaweel.rookieworkshopspring.config.handle.BusinessException;
+import com.kaweel.rookieworkshopspring.config.handle.CustomException;
 import com.kaweel.rookieworkshopspring.student.Student;
 import com.kaweel.rookieworkshopspring.student.StudentRepository;
 import com.kaweel.rookieworkshopspring.student.StudentSpecification;
@@ -37,7 +37,7 @@ public class AuthService {
                 StudentSpecification
                         .nameIs(request.getName())
                         .and(StudentSpecification.passwordIs(request.getPwd()))
-        ).orElseThrow(() -> new BusinessException(HttpStatus.UNAUTHORIZED));
+        ).orElseThrow(() -> new CustomException(HttpStatus.UNAUTHORIZED));
         String token = UUID.randomUUID().toString();
         tokenMap.put(student.getName(), token);
         return new SignInResponse(token);

@@ -8,17 +8,17 @@ import java.util.Date;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class BusinessException extends RuntimeException {
+public class CustomException extends RuntimeException {
 
     private HttpStatus httpStatus;
     private ResponseMsg responseMsg;
 
-    public BusinessException(HttpStatus httpStatus) {
+    public CustomException(HttpStatus httpStatus) {
         this.httpStatus = httpStatus;
         this.responseMsg = new ResponseMsg(httpStatus.getReasonPhrase());
     }
 
-    public BusinessException(HttpStatus httpStatus, String message) {
+    public CustomException(HttpStatus httpStatus, String message) {
         this.httpStatus = httpStatus;
         this.responseMsg = new ResponseMsg(message);
     }

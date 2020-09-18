@@ -1,7 +1,9 @@
-spring:
-  main:
-    web-application-type: none
+server:
+  port: 8080
+  servlet:
+    context-path: /api
 
+spring:
   jpa:
     hibernate:
       ddl-auto: create-drop

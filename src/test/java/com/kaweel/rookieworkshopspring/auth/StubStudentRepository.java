@@ -20,6 +20,11 @@ public class StubStudentRepository implements StudentRepository {
     }
 
     @Override
+    public Optional<Student> findByStudentID(Integer studentID) {
+        return Optional.empty();
+    }
+
+    @Override
     public List<StudentSubjectJQL> findByNameJQL(String name) {
         return null;
     }

@@ -106,6 +106,7 @@ public class StudentRepositoryTest {
         int before = studentRepository.findAll().size();
         Student student = new Student();
         student.setName("celica");
+        student.setStudentID(103);
         student.setGrade(Grade.HIGH_SCHOOL);
         student.setPassword("1");
         studentRepository.save(student);
