@@ -13,13 +13,13 @@ public class HandleException {
     @ExceptionHandler(Exception.class)
     public ResponseEntity exception(Exception e) {
         log.error(e.getMessage(), e);
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new CustomException.ResponseMsg("something wrong"));
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ResponseMessage("something wrong"));
     }
 
     @ExceptionHandler(CustomException.class)
-    public ResponseEntity business(CustomException e) {
-        log.error(e.getResponseMsg().getMessage(), e);
-        return ResponseEntity.status(e.getHttpStatus()).body(e.getResponseMsg());
+    public ResponseEntity customException(CustomException e) {
+        log.error(e.getResponseMessage().getMessage(), e);
+        return ResponseEntity.status(e.getHttpStatus()).body(e.getResponseMessage());
     }
 
 }

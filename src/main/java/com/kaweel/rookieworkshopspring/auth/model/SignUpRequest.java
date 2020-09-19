@@ -3,7 +3,7 @@ package com.kaweel.rookieworkshopspring.auth.model;
 import lombok.Data;
 
 @Data
-public class SignInRequest {
-    private String name;
+public class SignUpRequest {
+    private String username;
     private String password;
 }

@@ -12,7 +12,10 @@ import java.util.Optional;
 public interface StudentRepository extends JpaRepository<Student, Integer>, JpaSpecificationExecutor {
 
     Optional<Student> findByName(String name);
+
     Optional<Student> findByStudentID(Integer studentID);
+
+    Optional<Student> findByNameAndPassword(String name, String password);
 
     @Query(
             value = "SELECT \n" +

@@ -75,7 +75,7 @@ public class AuthServiceTest {
         AuthService service = new AuthService(studentRepository);
         SignInRequest signInRequest = new SignInRequest();
         signInRequest.setName("sephera");
-        signInRequest.setPwd("sp");
+        signInRequest.setPassword("sp");
         SignInResponse signInResponse = service.signIn(signInRequest);
         Assertions.assertNotNull(signInResponse.getToken());
     }

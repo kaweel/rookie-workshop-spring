@@ -26,6 +26,11 @@ public class DummyStudentRepository implements StudentRepository {
     }
 
     @Override
+    public Optional<Student> findByNameAndPassword(String name, String password) {
+        return Optional.empty();
+    }
+
+    @Override
     public List<StudentSubjectJQL> findByNameJQL(String name) {
         return null;
     }
